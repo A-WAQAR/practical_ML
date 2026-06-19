@@ -27,7 +27,27 @@
 
 
 
-name : First Workflow
+# name : First Workflow
+
+# on:
+#   push:
+
+# jobs:
+#   test:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+
+#       - uses: actions/checkout@v4
+
+#       - name: print Message
+#         run: echo "Hello CI"
+
+# name: First Workflow
+
+
+name: Run Tests
 
 on:
   push:
@@ -39,9 +59,18 @@ jobs:
 
     steps:
 
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: print Message
-        run: echo "Hello CI"
+      - name: Setup Python
+        uses: actions/setup-python@v5
 
-name: First Workflow
+        with:
+          python-version: "3.12"
+
+      - name: Install Dependencies
+        run: pip install pytest
+
+      - name: Run Tests
+        run: pytest
+
