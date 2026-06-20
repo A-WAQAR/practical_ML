@@ -47,30 +47,44 @@
 # name: First Workflow
 
 
-name: Run Tests
+# name: Run Tests
+
+# on:
+#   push:
+
+# jobs:
+#   test:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+
+#       - name: Checkout Code
+#         uses: actions/checkout@v4
+
+#       - name: Setup Python
+#         uses: actions/setup-python@v5
+
+#         with:
+#           python-version: "3.12"
+
+#       - name: Install Dependencies
+#         run: pip install pytest
+
+#       - name: Run Tests
+#         run: pytest
+
+name: Deploy
 
 on:
   push:
 
 jobs:
-  test:
+  deploy:
 
-    runs-on: ubuntu-latest
-
-    steps:
-
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-
-        with:
-          python-version: "3.12"
-
-      - name: Install Dependencies
-        run: pip install pytest
-
-      - name: Run Tests
-        run: pytest
+  runs-on: ubuntu-latest
+  steps:
+  - uses: actions/checkout@v4
+  - name: Deploy Application
+  run: echo "Deploying Application"
 
