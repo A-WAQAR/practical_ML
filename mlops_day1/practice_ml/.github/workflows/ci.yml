@@ -90,23 +90,40 @@
 
 # name:
 
-name: ML Testing
+# name: ML Testing
+
+# on:
+#   push:
+
+# jobs:
+#   test:
+
+#   runs-on: ubuntu-latest
+#   steps:
+
+#   - uses: actions/checkout@v4
+#   - name: Install Dependencies
+#     run: pip install -r requirements.txt
+
+#   - name: Run Tests
+#     run: pytest
+
+
+name: Docker Build
 
 on:
   push:
 
 jobs:
-  test:
-
+  docker:
   runs-on: ubuntu-latest
+
   steps:
-
   - uses: actions/checkout@v4
-  - name: Install Dependencies
-    run: pip install -r requirements.txt
-
-  - name: Run Tests
-    run: pytest
+  - name: Build Docker Image
+    run: docker build -t ml-api
 
 
- 
+
+
+
