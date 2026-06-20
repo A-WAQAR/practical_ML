@@ -74,17 +74,39 @@
 #       - name: Run Tests
 #         run: pytest
 
-name: Deploy
+# name: Deploy
+
+# on:
+#   push:
+
+# jobs:
+#   deploy:
+
+#   runs-on: ubuntu-latest
+#   steps:
+#   - uses: actions/checkout@v4
+#   - name: Deploy Application
+#   run: echo "Deploying Application"
+
+# name:
+
+name: ML Testing
 
 on:
   push:
 
 jobs:
-  deploy:
+  test:
 
   runs-on: ubuntu-latest
   steps:
-  - uses: actions/checkout@v4
-  - name: Deploy Application
-  run: echo "Deploying Application"
 
+  - uses: actions/checkout@v4
+  - name: Install Dependencies
+    run: pip install -r requirements.txt
+
+  - name: Run Tests
+    run: pytest
+
+
+ 

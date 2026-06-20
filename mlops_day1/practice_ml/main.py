@@ -178,7 +178,14 @@
 # model.fit(x, y)
 # joblib.dump(model, "house_model.pk1")
 
-def add(a, b):
-    return a + b
+# def add(a, b):
+#     return a + b
 
+from sklearn.linear_model import LinearRegression
+import joblib
 
+x = [[1],[2],[3]]
+y = [10, 20, 30]
+model = LinearRegression()
+model.fit(x, y)
+joblib.dump(model, "house_model.pkl")
